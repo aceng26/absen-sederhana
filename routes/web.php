@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AbsenController;
 use App\Http\Controllers\LoginController;
 
 /*
@@ -27,4 +28,9 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => ['auth','ceklevel:admin,karyawan']], function(){
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+});
+
+Route::group(['middleware' => ['auth','ceklevel:karyawan']], function(){
+    Route::post('/simpan-masuk', [AbsenController::class, 'store'])->name('simpan-masuk');
+    Route::get('/absen-masuk', [AbsenController::class, 'index'])->name('absen-masuk');
 });

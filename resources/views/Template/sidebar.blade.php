@@ -36,7 +36,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('absen-masuk') }}" class="nav-link">
                   <i class="fas fa-angle-double-right nav-icon"></i>
                   <p>Absen Masuk</p>
                 </a>
